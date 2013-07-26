@@ -9,21 +9,23 @@ var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis().scale(x).orient("bottom");
 var yAxis = d3.svg.axis().scale(y).orient("left").tickFormat(formatPercent);
 
-x.domain(DATA.map(function(d) { return d.letter; }));
-y.domain([0, d3.max(DATA, function(d) { return d.frequency; })]);
+x.domain(FIXTURES_DATA.map(function(d) { return d.letter; }));
+y.domain([0, d3.max(FIXTURES_DATA, function(d) { return d.frequency; })]);
 
 
 /* Ember.Component */
 App = Ember.Application.create();
 
 App.BarChartComponent = Ember.Component.extend({
+  tagName: 'svg',
+  attributeBindings: 'width height'.w(),
   width: width + margin.left + margin.right,
   height: height + margin.top + margin.bottom,                                     
   transform: "translate(" + margin.left + "," + margin.top + ")",
   transformX: "translate(0,"+height+")",
 
   model: function(){ 
-    var data = DATA.map(function(d, i){
+    var data = FIXTURES_DATA.map(function(d, i){
       return {
           x: x(d.letter), 
           y: y(d.frequency), 

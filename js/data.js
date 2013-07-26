@@ -1,4 +1,4 @@
-var DATA = [
+var FIXTURES_DATA = [
     {  "letter":"A", "frequency":0.08167 },
     {  "letter":"B", "frequency":0.01492 },
     {  "letter":"C", "frequency":0.02780 },
