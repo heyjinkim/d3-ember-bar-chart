@@ -12,28 +12,17 @@
   </script>
 
   <script type="text/x-handlebars" id="components/bar-chart">
-    <svg {{bindAttr width=width height=height}}>
-      <g {{bindAttr transform=transform}}>
-        <g class="x axis" {{bindAttr transform=transformX}}></g>
-
-        <g class="y axis">
-          <text transform="rotate(-90)" y="6" dy=".71em" style="text-anchor:end;">
-            Frequency
-          </text>
-        </g>
-        
-        {{#each model}}
-          <rect class="bar" {{bindAttr x=x width=width y=y height=height}}></rect>
-        {{/each}}
-      </g>
-    </svg>
+    <g {{bindAttr transform=transform}}>
+      <g id="xaxis" class="x axis" {{bindAttr transform=transformX}}></g>
+      <g id="yaxis" class="y axis"><text transform="rotate(-90)" y="6" dy=".71em" style="text-anchor:end;">Frequency</text></g>
+      <g id="rects"></g>
+    </g>
   </script>
 
-  <script src="js/libs/jquery.js"></script>
+  <script src="js/libs/jquery-1.9.1.js"></script>
+  <script src="js/libs/handlebars-1.0.0-rc.4.js"></script>
+  <script src="js/libs/ember-1.0.0-rc.6.1.js"></script>
   <script src="js/libs/d3.v3.min.js"></script>
-  <script src="js/libs/handlebars.js"></script>
-  <script src="js/libs/ember-latest.js"></script>
-
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
